@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2204ad1e-4f19-4235-a738-2fe82a125f75" name="Default" comment="Services Addedw">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pythondispatchms/controllers/api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pythondispatchms/controllers/smartphones.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pythondispatchms/public/img/dvan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pythondispatchms/templates/api/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pythondispatchms/templates/api/api.mak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pythondispatchms/templates/api/display.mak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pythondispatchms/templates/devices/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pythondispatchms/templates/devices/devices.mak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/python.mercury.ms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python.mercury.ms.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythondispatchms/controllers/root.py" beforeDir="false" afterPath="$PROJECT_DIR$/pythondispatchms/controllers/root.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythondispatchms/controllers/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/pythondispatchms/controllers/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythondispatchms/lib/app_globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/pythondispatchms/lib/app_globals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythondispatchms/lib/jqgrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/pythondispatchms/lib/jqgrid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythondispatchms/model/tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/pythondispatchms/model/tables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythondispatchms/public/lib/stomp/stomp.js" beforeDir="false" afterPath="$PROJECT_DIR$/pythondispatchms/public/lib/stomp/stomp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythondispatchms/templates/index.mak" beforeDir="false" afterPath="$PROJECT_DIR$/pythondispatchms/templates/index.mak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythondispatchms/templates/master.mak" beforeDir="false" afterPath="$PROJECT_DIR$/pythondispatchms/templates/master.mak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/python_mercury_ms$tables.coverage" NAME="tables Coverage Results" MODIFIED="1528468844855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pythonmercuryms/model" />
+    <SUITE FILE_PATH="coverage/python_mercury_ms$test.coverage" NAME="test Coverage Results" MODIFIED="1535645818421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_mercury_ms$remail.coverage" NAME="remail Coverage Results" MODIFIED="1531165605778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_mercury_ms$email.coverage" NAME="email Coverage Results" MODIFIED="1531935762364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_mercury_ms$admin.coverage" NAME="admin Coverage Results" MODIFIED="1529962665032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pythonmercuryms/controllers" />
+    <SUITE FILE_PATH="coverage/python_mercury_ms$BSOUP.coverage" NAME="BSOUP Coverage Results" MODIFIED="1527269197492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/python_mercury_ms$send2c5.coverage" NAME="send2c5 Coverage Results" MODIFIED="1534453939214" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>float</find>
+      <find>grid</find>
+      <find>grid.</find>
+      <find>doDoubleClickVenusResImages</find>
+      <find>//api</find>
+      <find>listenerclient.debug</find>
+      <find>&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=AIzaSyBWs-R7lvNo7pooz56iQOqrfQXq0BbIfgo&quot; async defer&gt;&lt;/script&gt;    &lt;style type=&quot;text/css&quot;&gt;</find>
+      <find>width</find>
+      <find>load</find>
+      <find>loadgrid</find>
+      <find>Code</find>
+      <find>WHOOPS</find>
+      <find>WHO</find>
+      <find>.alert</find>
+      <find>Who</find>
+      <find>alert</find>
+      <find>dispatch</find>
+      <find>message</find>
+      <find>base64</find>
+      <find>b64encode</find>
+      <find>all</find>
+      <find>reserv</find>
+      <find>.ajax</find>
+      <find>managepass</find>
+      <find>greetings</find>
+      <find>Jobs</find>
+      <find>filter(</find>
+      <find>filter</find>
+      <find>smartphones</find>
+      <find>helpCom</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>dedicatedEventName</replace>
+      <replace>loadDedicatedMonitor</replace>
+      <replace>endDate</replace>
+      <replace>nameEvent</replace>
+      <replace>updateDedicatedMonitor</replace>
+      <replace>listPsetcolsRoles</replace>
+      <replace>addUsers2Rol</replace>
+      <replace>jqGridPagerRolUsers</replace>
+      <replace>RolForm</replace>
+      <replace>roles-form</replace>
+      <replace>group-id</replace>
+      <replace>addGroupWindow</replace>
+      <replace>jqGridPager4Group</replace>
+      <replace>GroupForm</replace>
+      <replace>users</replace>
+      <replace>dedicatedlistenerclient</replace>
+      <replace>grid_name_users_by_id</replace>
+      <replace>wizardForm</replace>
+      <replace>grid_name_dedicated</replace>
+      <replace>grid_pager_dedicated</replace>
+      <replace>MyDevicesGrid</replace>
+      <replace>DevicesTables</replace>
+      <replace>pythondispatchms</replace>
+      <replace>python.dispatch.ms</replace>
+      <replace>dispatch</replace>
+      <replace>managepass</replace>
+      <replace>8093</replace>
+      <replace>Integer</replace>
+      <replace>jgGridSmartphones</replace>
+      <replace>]</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/pythonmercuryms</dir>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1696" />
+    <option name="y" value="28" />
+    <option name="width" value="1680" />
+    <option name="height" value="972" />
+  </component>
+  <component name="ProjectId" id="1UQzswdfB92spfjAHj6VkiZ9EEX" />
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Mako</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>MakoArgumentListInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowCoverage.ShowToolbar" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jsx.switch.disabled" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pythonmercuryms/public/todelete" />
+      <recent name="$PROJECT_DIR$/pythonmercuryms/public/new/fonts" />
+      <recent name="$PROJECT_DIR$/pythonmercuryms/public/new/css" />
+      <recent name="$PROJECT_DIR$/pythonmercuryms/public/new/js" />
+      <recent name="$PROJECT_DIR$/pythonmercuryms/public/test" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pythondispatchms/templates/api" />
+      <recent name="$PROJECT_DIR$/pythondispatchms/controllers" />
+      <recent name="$PROJECT_DIR$/pythondispatchms/templates" />
+      <recent name="$PROJECT_DIR$/pythondispatchms/public/img" />
+      <recent name="$PROJECT_DIR$/pythonmercuryms/controllers" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.test">
+    <configuration name="traffic.mak" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/python.mercury.ms/pythonmercuryms/templates/traffic/traffic.mak">
+      <method v="2" />
+    </configuration>
+    <configuration name="BSOUP" type="PythonConfigurationType" factoryName="Python">
+      <module name="python.mercury.ms" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/.virtualenvs/python.mercury.ms/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/bsoup.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="admin" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="python.mercury.ms" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pythonmercuryms/controllers" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pythonmercuryms/controllers/admin.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="email" type="PythonConfigurationType" factoryName="Python">
+      <module name="python.mercury.ms" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/.virtualenvs/python.mercury.ms/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/readEmail.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="remail" type="PythonConfigurationType" factoryName="Python">
+      <module name="python.mercury.ms" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/.virtualenvs/python.mercury.ms/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rEmail.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="send2c5" type="PythonConfigurationType" factoryName="Python">
+      <module name="python.mercury.ms" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/.virtualenvs/python.mercury.ms/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/send2c5.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tables" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="python.mercury.ms" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pythonmercuryms/model" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pythonmercuryms/model/tables.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python">
+      <module name="python.mercury.ms" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/.virtualenvs/python.mercury.ms/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.traffic.mak" />
+      <item itemvalue="Python.send2c5" />
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.BSOUP" />
+      <item itemvalue="Python.email" />
+      <item itemvalue="Python.remail" />
+      <item itemvalue="Python.tables" />
+      <item itemvalue="Python.admin" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.traffic.mak" />
+        <item itemvalue="Python.admin" />
+        <item itemvalue="Python.tables" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2204ad1e-4f19-4235-a738-2fe82a125f75" name="Default" comment="" />
+      <created>1525364987981</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1525364987981</updated>
+      <workItem from="1575303819178" duration="962000" />
+    </task>
+    <task id="LOCAL-00040" summary="Services Added">
+      <created>1532623134335</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1532623134335</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Services Added">
+      <created>1532625479174</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1532625479174</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Services Added">
+      <created>1532627244625</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1532627244625</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Services Added">
+      <created>1532627902477</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1532627902477</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Services Added">
+      <created>1532628533805</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1532628533805</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Services Added">
+      <created>1532628735947</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1532628735947</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Services Added">
+      <created>1532629091131</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1532629091131</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Services Added">
+      <created>1532630388566</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1532630388566</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Services Added">
+      <created>1532632736280</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1532632736280</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Services Added">
+      <created>1532633448863</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1532633448863</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Services Added">
+      <created>1532650600956</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1532650600958</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Services Added">
+      <created>1532707632931</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1532707632932</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Services Added">
+      <created>1532718829947</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1532718829947</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Services Added">
+      <created>1532994061644</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1532994061645</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Services Added">
+      <created>1533138571928</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1533138571928</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Services Added">
+      <created>1533139714263</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1533139714263</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Services Added">
+      <created>1533142055018</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1533142055018</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Services Added">
+      <created>1533142427736</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1533142427736</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Services Added">
+      <created>1533143355135</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1533143355135</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Services Added">
+      <created>1533146417331</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1533146417331</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Services Added">
+      <created>1533318599268</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1533318599269</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Services Added">
+      <created>1533573427083</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1533573427084</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Services Added">
+      <created>1533578274959</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1533578274959</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Services Added">
+      <created>1533685116308</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1533685116309</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Services Added">
+      <created>1533858014261</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1533858014262</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Services Added">
+      <created>1534440648480</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1534440648481</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Services Added">
+      <created>1534444458685</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1534444458685</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Services Added">
+      <created>1534454959750</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1534454959750</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Services Added">
+      <created>1534528709102</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1534528709104</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Services Added">
+      <created>1535390966393</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1535390966394</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Services Added">
+      <created>1535581072958</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1535581072959</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Services Added">
+      <created>1536192644030</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1536192644031</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Services Added">
+      <created>1536278600268</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1536278600269</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Services Added">
+      <created>1536626383852</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1536626383853</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Services Added">
+      <created>1536880194772</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1536880194773</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Services Added">
+      <created>1536881561624</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1536881561624</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Services Added">
+      <created>1536887100117</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1536887100118</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Services Addedw">
+      <created>1536887118423</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1536887118423</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Services Addedw">
+      <created>1537230448941</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1537230448941</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Services Addedw">
+      <created>1538127540055</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1538127540056</updated>
+    </task>
+    <task id="LOCAL-00080" summary="REadme added">
+      <created>1538493381442</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1538493381444</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Services Addedw">
+      <created>1538612339921</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1538612339922</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Services Addedw">
+      <created>1540422341021</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1540422341021</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Services Addedw">
+      <created>1540484902107</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1540484902108</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Services Addedw">
+      <created>1540516615579</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1540516615580</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Services Addedw">
+      <created>1540567457831</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1540567457832</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Services Addedw">
+      <created>1545071529990</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1545071529991</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Sounds Added to events">
+      <created>1548727392871</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1548727392873</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Sounds FIX">
+      <created>1548803269837</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1548803269838</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Alpha" />
+    <MESSAGE value="Alpha+" />
+    <MESSAGE value="FIX" />
+    <MESSAGE value="Translation" />
+    <MESSAGE value="Alpha2" />
+    <MESSAGE value="Fix column lenght" />
+    <MESSAGE value="Added groups, reademail,add CallerEvent" />
+    <MESSAGE value="FIX Caller Event" />
+    <MESSAGE value="FIX Long Data in Emails" />
+    <MESSAGE value="FIX conection" />
+    <MESSAGE value="Services Added" />
+    <MESSAGE value="REadme added" />
+    <MESSAGE value="Services Addedw" />
+    <MESSAGE value="Sounds Added to events" />
+    <MESSAGE value="Sounds FIX" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sounds FIX" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

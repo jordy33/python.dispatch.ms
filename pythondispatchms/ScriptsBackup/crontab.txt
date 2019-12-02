@@ -1,0 +1,3 @@
+* * * * * /usr/bin/supervisorctl restart readEmail
+* * * * * env > /tmp/env.output
+0 0 1 * * /home/wsgi/backups/db-backup.sh

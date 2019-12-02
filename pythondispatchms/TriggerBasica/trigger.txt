@@ -1,0 +1,53 @@
+USE [ms03]
+GO
+/****** Object:  Trigger [dbo].[notify]    Script Date: 8/29/2018 7:24:02 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Jorge Macias
+-- Create date: Wed 15 March 2017
+-- Description:	Notifier
+-- =============================================
+ALTER TRIGGER [dbo].[notify] ON  [dbo].[Alarm_Last]
+   After UPDATE
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	DECLARE @snimeiid varchar(32);
+	DECLARE @cmd varchar(50);
+	DECLARE @command varchar(150);
+	Declare @alarm int = 0;
+	Declare @latitude float = 1;
+	Declare @longitude float = 1;
+	DECLARE @account varchar(32);
+	DECLARE @password varchar(32);
+	DECLARE @descript varchar(32);
+
+    Declare @speed float = 1;
+	Declare @altitude int = 0;
+	Declare @azimuth int = 0;
+	Declare @gpsvalid int = 0;
+	declare @rdatetime datetime;
+	declare @trackername varchar(50);
+	set @alarm = (SELECT alarm_id FROM inserted);
+	set @snimeiid= (SELECT sn_imei_id FROM inserted);
+	set @account='';
+	set @password='';
+	set @descript='';
+	set @latitude = (SELECT latitude FROM inserted);
+	set @longitude = (SELECT longitude FROM inserted);
+	set @speed = (SELECT speed FROM inserted);
+	set @altitude = (SELECT altitude FROM inserted);
+	set @azimuth = (SELECT azimuth FROM inserted);
+	set @gpsvalid = (SELECT gps_valid FROM inserted);
+	set @rdatetime = (SELECT r_datetime FROM inserted);
+	set @trackername='';
+	set @cmd= N'C:\Python27\python.exe C:\source\notify.py '
+	set @command = @cmd + @account+','+@snimeiid +','+CAST(@alarm AS VARCHAR(8))+','+CAST(@descript AS VARCHAR(255))+','+CONVERT (VARCHAR(50), @latitude,128)+','+CONVERT (VARCHAR(50), @longitude,128)+','+CONVERT (VARCHAR(50), @speed,3)+','+CAST(@azimuth AS VARCHAR(8))+','+CAST(@gpsvalid AS VARCHAR(8))+','+CONVERT(varchar(23), @rdatetime, 126)+','+CAST(@trackername AS VARCHAR(255))
+	-- Insert statements for trigger here
+	EXEC master..xp_cmdshell @command;
+END

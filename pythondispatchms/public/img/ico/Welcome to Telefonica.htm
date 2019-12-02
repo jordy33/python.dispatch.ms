@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://localhost:8080/telefonicaGrud -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bootstrap 3 App">
+    <meta name="author" content="Jorge Macias &amp; Maria Lacayo">
+    <meta name="keyword" content="Sun">
+    <meta name="viewport" content="initial-scale=1.0">
+    
+
+    <link rel="icon" type="image/x-icon" href="http://localhost:8080/img/ico/sun.png">
+    <title>
+  Welcome to Telefonica
+</title>
+    <link href="./Welcome to Telefonica_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./Welcome to Telefonica_files/font-awesome.min.css" rel="stylesheet">
+    <link href="./Welcome to Telefonica_files/datepicker3.css" rel="stylesheet">
+    <link href="./Welcome to Telefonica_files/teststyles13.css" rel="stylesheet">
+	<link href="./Welcome to Telefonica_files/css" rel="stylesheet">
+    <!-- jquery and alert -->
+    <script src="./Welcome to Telefonica_files/jquery-1.11.1.min.js"></script>
+    <script src="./Welcome to Telefonica_files/alert.js"></script>
+	<!--[if lt IE 9]>
+	<script src="/js/html5/html5shiv.js"></script>
+	<script src="/js/html5/respond.min.js"></script>
+	<![endif]-->
+    <!-- jqgrid -->
+    <script src="./Welcome to Telefonica_files/jquery.jqgrid.min.js"></script>
+    <script src="./Welcome to Telefonica_files/grid.locale-es.js"></script>
+    <!-- Font Size -->
+    <link rel="stylesheet" href="./Welcome to Telefonica_files/ui.jqgrid.css">
+    <!-- Custom Theme Roller -->
+    <!-- Important: Bootstrap must be first to avoid over raid jquery-ui  -->
+    <script src="./Welcome to Telefonica_files/bootstrap.min.js"></script>
+
+    <script src="./Welcome to Telefonica_files/jquery-ui.js"></script>
+    <script src="./Welcome to Telefonica_files/jquery.validate.js"></script>
+
+    <link rel="stylesheet" href="./Welcome to Telefonica_files/jquery-ui1.css" type="text/css"> <!-- Tema de grid-->
+    <!-- end jqgrid -->
+    <script src="./Welcome to Telefonica_files/mqttws31.js" type="text/javascript"></script>
+    <!-- notifications grid -->
+    <!-- moment for UTC to local dates -->
+    <script src="./Welcome to Telefonica_files/moment.js"></script>
+
+
+    <script src="./Welcome to Telefonica_files/chart.min.js"></script>
+	<script src="./Welcome to Telefonica_files/chart-data.js"></script>
+	<script src="./Welcome to Telefonica_files/easypiechart.js"></script>
+	<script src="./Welcome to Telefonica_files/easypiechart-data.js"></script>
+	<script src="./Welcome to Telefonica_files/bootstrap-datepicker.js"></script>
+	<script src="./Welcome to Telefonica_files/custom.js"></script>
+
+    <style type="text/css">
+    html, body {
+        margin: 0;
+        padding: 0;
+        font-size:90%;
+    }
+    .main-table{
+        width:100%;
+        border-style: solid;
+        border-width: thin;
+        border-collapse: separate;
+        border-radius:5px;
+        padding-top: 1px;
+        padding-right: 1px;
+        padding-bottom: 1px;
+        padding-left: 1px;
+    }
+    .td-1{
+        padding: 3px;
+        alignment: left;
+        text-align: left;
+        width: 8px;
+    }
+    .td-last{
+        padding: 3px;
+        alignment: left;
+        text-align: left;
+    }
+    th{
+        text-align: center;
+    }
+    .second-table{
+        border-style: solid;
+        border-width: thin;
+        border-radius: 10px;
+    }
+    #status{
+        width:100px;
+        margin-top:12px;
+        background-color: #fdb8136e;
+    }
+    #not{
+        background-color: #fdb8136e;
+        color:#fff;
+        border-radius: 4px;
+    }
+    </style>
+    <!-- Global JavaScript -->
+    <script type="text/javascript">
+        // Function to resize jqGrid
+        $(window).on("resize", function () {
+            var $grid = $("#jqGrid"),
+                newWidth = $grid.closest(".ui-jqgrid").parent().width();
+            $grid.jqGrid("setGridWidth", newWidth, true);
+        });
+        // End
+
+        function changeStateMessage(recordNumber){
+                $.ajax({
+                type: "GET",
+                url: "/manage/updateBadge"+"?record="+recordNumber,
+                contentType: "application/json; charset=utf-8",
+                data: { 'param':'badge' },
+                success: function(data) {
+                    // data.value is the success return json. json string contains key value
+                    $("#numeric_badge").text(data.badge);
+                },
+                error: function() {
+                    //alert("#"+ckbid);
+                    alert("Error accessing server manage/badge")
+                    },
+                complete: function() {
+                    }
+                });
+                $('#jqGridNot').trigger( 'reloadGrid' );
+        }
+        function notificationFmatter (cellvalue, options, rowObject)
+        {
+            var array = cellvalue.split(',');
+            if (rowObject[5]=='Y') {
+                html = '<div class="media">'+
+                            '<div class="media-body">' +
+                                '<strong class="notification-title">' +
+                                    '<i class="'+array[6]+'"></i>&nbsp&nbsp'+
+                                    '<a style="color:#337ab7;text-decoration: none;" href="#">'+
+                                        array[0]+' </a>'+
+                                        array[1]+' <a style="color:#337ab7;text-decoration: none;" href="#">'+
+                                        array[2]+'</a></strong> ' +
+                                    '<p class="notification-desc"></p>'+
+                                        array[3]+'</i><br>'+
+                                        array[4]+
+                                        '<br><small style="color: #777777;" class="timestamp">'+
+                                        rowObject[2]+'</small></p>' +
+                            '</div>' +
+                        '</div>';
+            }
+                else
+            {
+                html = '<div class="media">'+
+                            '<div class="media-body">' +
+                                '<strong class="notification-title">' +
+                                    '<i class="'+array[6]+'"></i>&nbsp&nbsp'+
+                                    '<a style="color:#337ab7;text-decoration: none;" href="#">'+
+                                        array[0]+' </a>'+
+                                        array[1]+' <a style="color:#337ab7;text-decoration: none;" href="#">'+
+                                        array[2]+'</a></strong> ' +
+                                    '<p class="notification-desc"></p>'+
+                                        array[3]+'</i><br>'+
+                                        array[4]+
+                                        '<br><small style="color: #777777;" class="timestamp">'+
+                                        rowObject[2]+'</small></p>' +
+                                        '<input type = "button", value = "Dismiss" onclick = "changeStateMessage('+rowObject[0]+')">' +
+                            '</div>' +
+                        '</div>';
+            }
+            return html
+        }
+        $(document).ready(function () {
+            $("#jqGridNot").jqGrid({
+                url: '/manage/loadNotification/',
+                datatype: 'json',
+                mtype: 'GET',
+                colNames: [ 'id','user','time_stamp','Message','state','Message'],
+                colModel :[
+                    {name:'id', hidden: true , width:0},
+                    {name:'user_id', hidden: true , width:0},
+                    {name:'time_stamp', hidden: true , width:0},
+                    {name:'message',formatter:notificationFmatter, width:0},
+                    {name:'attended_time', hidden: true , width:0},
+                    {name:'attended_state', hidden: true , width:0}
+                ],
+                sortname: 'time_stamp',
+                sortorder: "desc",
+                viewrecords: true, // show the current page, data rang and total records on the toolbar
+                caption: "Notifications",
+                height: 150,
+				width: 280
+            });
+
+        });
+
+        //MQTT SETUP
+
+        var wsbroker = 'test.dwim.mx';  //mqtt websocket enabled broker
+        var wsport = 15675; // port for above
+        var reconnectTimeout = 15;
+        var client = new Paho.MQTT.Client(wsbroker, wsport, "/ws",
+            "clientid_manager");
+        client.onConnectionLost = function (responseObject) {
+             $('#status').val("Connection Lost: " + responseObject.errorMessage + ". Reconnecting");
+             document.getElementById("status").style.width ="450px";
+        };
+        client.onMessageArrived = function (message) {
+            var msg = message.payloadString;
+            var payload = msg.split('|');
+            var command = payload[0];
+            var data = payload[1];
+            switch (command) {
+                    case 'MSG':
+                        $.alert(data, { autoClose:false,});
+                        break;
+                    case 'NOT':
+                        $.alert("New Notification", { autoClose:true,});
+                        $("#numeric_badge").text(data);
+                        $('#jqGridNot').trigger( 'reloadGrid' );
+                        break;
+            }
+            document.getElementById("status").style.width ="100px";
+        };
+        var options = {
+            timeout: 3,
+            keepAliveInterval: 15,
+            cleanSession: true,
+            useSSL: false,
+            userName: 'dwim',
+            password: 'gpscontrol1',
+            onSuccess: function () {
+                $('#status').val('Connected');
+                topic='telefonica/notification/manager';
+                client.subscribe(topic, {qos: 1});
+            },
+            onFailure: function (message) {
+                $('#status').val('Connected');
+                setTimeout(MQTTconnect, reconnectTimeout);
+            }
+        };
+        client.connect(options);
+	</script>
+
+    
+
+  </head><body class=""><div id="dialogForm01" title="DETAILS"></div>
+
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+       var filter;
+		$("#jqGrid").jqGrid({
+		url: '/inventorySim?indx=0',
+		datatype: "json",
+		jsonReader: {
+            root: 'subscriptionData',
+            id: 'icc'
+        },
+		 colModel: [
+			{ label: 'Numero ICC', name: 'icc',key: true, width: 50,searchoptions : {searchOperMenu : false,sopt : ['eq','gt','lt','ge','le']}},
+            { label: 'Estado', name: 'lifeCycleStatus', width: 40, searchoptions : {searchOperMenu : false, sopt : ['eq','gt','lt','ge','le']}},
+			{ label: 'Numero IMSI', name: 'imsi', width: 40, searchoptions : {searchOperMenu : false, sopt : ['eq','gt','lt','ge','le']}},
+			{ label: 'Numero MSISDN', name: 'msisdn',index:'msisdn', width: 40, searchoptions : {searchOperMenu : false, sopt : ['eq','gt','lt','ge','le']}},
+            { label: 'Estado GPRS', name: 'gprsStatus.status', width: 40, formatter: valueofgprs, searchoptions : {searchOperMenu : false, sopt : ['eq','gt','lt','ge','le']}},
+            { label: 'Estado IP', name: 'ipStatus.status', width: 40, formatter: valueofip, searchoptions : {searchOperMenu : false, sopt : ['eq','gt','lt','ge','le']}},
+            { label: 'Numero IMEI', name: 'imei', width: 40, searchoptions : {searchOperMenu : false, sopt : ['eq','gt','lt','ge','le']}}
+		],
+		viewrecords: true, // show the current page, data rang and total records on the toolbar
+		autowidth: true,
+		height: 315,
+		rowNum: 14,
+		//colMenu: true,
+		//shrinkToFit: false,
+		 ondblClickRow: function(rowid){alert(rowid);
+		},
+		pager: "#jqGridPager"
+	    });
+		$('#jqGrid').setGroupHeaders(
+		    {
+		        useColSpanStyle: true,
+                groupHeaders: [
+                    { "numberOfColumns": 1, "titleText": "Info SIM", "startColumnName": "icc" },
+                    { "numberOfColumns": 2, "titleText": "Parametros de RED", "startColumnName": "lifeCycleStatus" },
+                    { "numberOfColumns": 2, "titleText": "Presencia", "startColumnName": "gprsStatus.status" },
+                    { "numberOfColumns": 1, "titleText": "Info Dispositivo", "startColumnName": "imei" }
+                ]
+            });
+
+        $('#jqGrid').jqGrid('navGrid',"#jqGridPager", {
+                search: false, // show search button on the toolbar
+                add: false,
+                edit: false,
+                del: false,
+                refresh: true
+        });
+
+        var timer;
+        $("#search_cells").on("keyup", function() {
+				var self = this;
+				if(timer) { clearTimeout(timer); }
+				timer = setTimeout(function(){
+					//timer = null;
+					$("#jqGrid").jqGrid('filterInput', self.value);
+				},0);
+			});
+
+        $('#jqGrid').navButtonAdd("#jqGridPager",
+                {
+                    buttonicon: "ui-icon-arrow-4-diag",
+                    title: "Details",
+                    caption: "Details",
+                    position: "last",
+                    onClickButton: detailsButtonClicked
+                });
+
+
+});
+
+function valueofgprs(cellValue, options, rowObject){
+     var status;
+     if (cellValue == 1){
+
+         status="ACTIVA";
+     }
+     else{
+
+         status="DESACTIVADA"
+     }
+    return status;
+}
+
+
+function valueofip(cellValue, options, rowObject){
+    var status;
+     if (cellValue == 0){
+
+         status="NO DISPONIBLE";
+     }
+     else{
+
+         status=""
+     }
+    return status;
+}
+
+function detailsButtonClicked() {
+             var grid = $("#jqGrid");
+             var rowid = grid.jqGrid('getGridParam', 'selrow');
+              if (!rowid){
+
+                alert("Select a row")
+
+                }else
+
+                {
+
+                var winHeight=Math.round(window.innerHeight*.75);
+                var winWidth=Math.round(window.innerWidth*.86);
+
+                     var addFilter01Buttons = {
+                        "Close": function() {
+                            Dialog01.dialog( "close" );
+                        }
+                    };
+                    var Dialog01 = $( "#dialogForm01" ).dialog({
+                        autoOpen: false,
+                        height: winHeight-100,
+                        width: winWidth-200,
+                        modal: true,
+                        buttons: addFilter01Buttons,
+                        close: function() {
+                            //$('#loanForm')[0].reset();
+                            //form[ 0 ].reset();
+                            //allFields.removeClass( "ui-state-error" );
+                        }
+                 });
+
+
+
+
+                            // Append html
+                 $.ajax({
+                    type: "GET",
+                    url: "/detailsTemplate"+"?icc="+rowid,
+                    contentType: "application/json; charset=utf-8",
+                    data: { 'param':'gaugeParameters' },
+                    success: function(parameterdata) {
+                        //Insert HTML code
+                        $( "#dialogForm01" ).html(parameterdata.template);
+                        //Dialog01.data('rowId',1);
+                        Dialog01.dialog( "open" );
+
+                    },
+                    error: function() {
+                        alert("Error accessing server /detailsTemplate")
+                    },
+                    complete: function() {
+                    }
+                 });
+
+
+
+                }
+}
+    function next() {
+        var a = document.getElementById("index").value;
+        var b = document.getElementById("page").value;
+        var number = +a + 14;
+        document.getElementById("index").value = number;
+        var url = "/inventorySim?indx="+number;
+        document.getElementById("index").value = +b -1;
+        jQuery("#jqGrid").setGridParam({url:url}).trigger("reloadGrid");
+      }
+    function back() {
+        var a = document.getElementById("index").value;
+        var number = +a - 14;
+        document.getElementById("index").value = number;
+        var url = "/inventorySim?indx="+number;
+        jQuery("#jqGrid").setGridParam({url:url}).trigger("reloadGrid");
+      }
+      function hide() {
+          jQuery("#jqGrid").jqGrid('hideCol',"msisdn");
+        }
+        function show() {
+          jQuery("#jqGrid").jqGrid('showCol',"msisdn");
+        }
+ </script>
+
+
+
+        
+          
+  <!-- INSERT MAIN MENU -->
+  <div id="divHeader">
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="http://localhost:8080/telefonicaGrud#"><span>Administration</span>System</a>
+
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar-collapse" aria-expanded="true"><span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span></button>
+
+                <ul class="nav navbar-top-links navbar-right">
+					<li class="dropdown"><a id="not" class="dropdown-toggle count-info" data-toggle="dropdown" href="http://localhost:8080/telefonicaGrud#">
+						<em class="fa fa-bell"></em><span class="label label-info" id="numeric_badge"></span>
+					</a>
+						<ul class="dropdown-menu dropdown-alerts">
+							<div class="ui-jqgrid ui-widget ui-widget-content ui-corner-all" id="gbox_jqGridNot" dir="ltr" style="width: 280px;"><div class="ui-widget-overlay jqgrid-overlay" id="lui_jqGridNot"></div><div class="loading ui-state-default ui-state-active" id="load_jqGridNot" style="display: none;">Cargando...</div><div class="ui-jqgrid-view" role="grid" aria-multiselectable="false" id="gview_jqGridNot" style="width: 280px;"><div class="ui-jqgrid-titlebar ui-jqgrid-caption ui-widget-header ui-corner-top ui-helper-clearfix"><span class="ui-jqgrid-title">Notifications</span><a role="link" class="ui-jqgrid-titlebar-close ui-corner-all" title="Toggle Expand Collapse Grid"><span class="ui-icon ui-icon-circle-triangle-n"></span></a></div><div class="ui-state-default ui-jqgrid-hdiv" style="width: 280px; cursor: default;"><div class="ui-jqgrid-hbox"><table class="ui-jqgrid-htable" style="width:262px" role="presentation" aria-labelledby="gbox_jqGridNot"><thead><tr class="ui-jqgrid-labels" role="row"><th id="jqGridNot_id" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style="width: 150px; display: none;"><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr">&nbsp;</span><div id="jqgh_jqGridNot_id" class="ui-jqgrid-sortable">id<span class="s-ico" style="display:none"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th><th id="jqGridNot_user_id" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style="width: 150px; display: none;"><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr">&nbsp;</span><div id="jqgh_jqGridNot_user_id" class="ui-jqgrid-sortable">user<span class="s-ico" style="display:none"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th><th id="jqGridNot_time_stamp" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style="width: 150px; display: none;"><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr">&nbsp;</span><div id="jqgh_jqGridNot_time_stamp" class="ui-jqgrid-sortable">time_stamp<span class="s-ico" style=""><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th><th id="jqGridNot_message" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style="width: 262px;"><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr">&nbsp;</span><div id="jqgh_jqGridNot_message" class="ui-jqgrid-sortable">Message<span class="s-ico" style="display:none"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th><th id="jqGridNot_attended_time" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style="width: 150px; display: none;"><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr">&nbsp;</span><div id="jqgh_jqGridNot_attended_time" class="ui-jqgrid-sortable">state<span class="s-ico" style="display:none"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th><th id="jqGridNot_attended_state" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style="width: 150px; display: none;"><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr">&nbsp;</span><div id="jqgh_jqGridNot_attended_state" class="ui-jqgrid-sortable">Message<span class="s-ico" style="display:none"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th></tr></thead></table></div></div><div class="ui-jqgrid-bdiv" style="height: 150px; width: 280px;"><div style="position:relative;"><div></div><table id="jqGridNot" class="ui-jqgrid-btable" cellpadding="0" cellspacing="0" tabindex="0" role="presentation" aria-labelledby="gbox_jqGridNot" style="width: 262px;"><tbody><tr class="jqgfirstrow" role="row" style="height:auto"><td role="gridcell" style="height:0;width:150px;display:none;"></td><td role="gridcell" style="height:0;width:150px;display:none;"></td><td role="gridcell" style="height:0;width:150px;display:none;"></td><td role="gridcell" style="height:0;width:262px;"></td><td role="gridcell" style="height:0;width:150px;display:none;"></td><td role="gridcell" style="height:0;width:150px;display:none;"></td></tr></tbody></table></div></div></div><div class="ui-jqgrid-resize-mark" id="rs_mjqGridNot">&nbsp;</div></div>
+                                <div id="jqGridNot" class="scroll" style="text-align:center;"></div>
+                            
+						</ul>
+					</li>
+				</ul>
+                <input type="text" id="status" class="form-control" readonly="">
+			</div>
+		</div>
+        <div id="tabHeader">
+            <ul class="nav nav-tabs ui-widget-header">
+                  <li class="active"><a href="http://localhost:8080/telefonicaGrud#tab1" data-toggle="tab">Main</a></li>
+                      <li><a href="http://localhost:8080/telefonicaGrud#Venus" data-toggle="tab">Venus</a></li>
+                      <li><a href="http://localhost:8080/telefonicaGrud#Mercurio" data-toggle="tab">Mercurio</a></li>
+                      <li><a href="http://localhost:8080/telefonicaGrud#Telefonica" data-toggle="tab">Telefonica</a></li>
+                  <li><a href="http://localhost:8080/logout_handler" style="color:#666"><em class="fa fa-power-off">&nbsp;</em>Logout</a></li>
+            </ul>
+        </div>
+         <!-- /.container-fluid -->
+	  </nav>
+  </div>
+  <div id="divNavigation">
+      <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar collapse in" aria-expanded="true" style="">
+          <div class="profile-sidebar">
+			<div class="profile-usertitle">
+				<div class="profile-usertitle-name">manager</div>
+				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+			</div>
+			<div class="clear"></div>
+		  </div>
+          <div class="tab-content">
+              <div class="tab-pane fade in active" id="tab1">
+                  <ul class="nav menu">
+                      <li><a href="http://localhost:8080/index"><span class="fa fa-caret-right" width="10px" style="color:#e78f08;">&nbsp;</span>Search and Manage</a></li>
+                      <li><a href="http://localhost:8080/manage"><span class="" width="10px">&nbsp;&nbsp;</span>Create New</a></li>
+                      <li><a href="http://localhost:8080/user_search"><span class="" width="10px">&nbsp;&nbsp;</span>User Search</a></li>
+                  </ul>
+              </div>
+          <div class="tab-pane fade" id="Venus">
+              <ul class="nav menu">
+                  <li> Crear Tickets</li>
+                  <li> Inventario</li>
+                  <li> Otro</li>
+              </ul>
+          </div>
+          <div class="tab-pane fade" id="Mercurio">
+              <ul class="nav menu">
+                  <li> Trafico</li>
+                  <li> Estadisticas</li>
+                  <li> Graficos</li>
+              </ul>
+          </div>
+          <div class="tab-pane fade" id="Telefonica">
+              <ul class="nav menu">
+                  <li> Lineas</li>
+                  <li> Plan Telefonico</li>
+                  <li> Otro</li>
+              </ul>
+          </div>
+          </div>
+          <!-- CHAT
+          <div class="panel panel-default chat ">
+					<div class="panel-heading">
+						Chat
+						<span class="pull-right clickable panel-toggle panel-button-tab-left panel-collapsed"><em class="fa fa-toggle-down"></em></span></div>
+					<div class="panel-body" style="display: none;">
+						<ul>
+							<li class="left clearfix"><span class="chat-img pull-left">
+								<img src="http://placehold.it/60/30a5ff/fff" alt="User Avatar" class="img-circle" />
+								</span>
+								<div class="chat-body clearfix">
+									<div class="header"><strong class="primary-font">Admin</strong> <small class="text-muted">32 mins ago</small></div>
+									<p>On construction.</p>
+								</div>
+							</li>
+                            <!--
+							<li class="right clearfix"><span class="chat-img pull-right">
+								<img src="http://placehold.it/60/dde0e6/5f6468" alt="User Avatar" class="img-circle" />
+								</span>
+								<div class="chat-body clearfix">
+									<div class="header"><strong class="pull-left primary-font">Jane Doe</strong> <small class="text-muted">6 mins ago</small></div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc.</p>
+								</div>
+							</li>
+
+						</ul>
+					</div>
+					<div class="panel-footer">
+						<div class="input-group">
+							<input id="btn-input" type="text" class="form-control input-md" placeholder="Type your message here..." /><span class="input-group-btn">
+								<button class="btn btn-primary btn-md" id="btn-chat">Send</button>
+						</span></div>
+					</div>
+				</div>
+				-->
+      </div>
+  </div>
+  <!-- End MENU -->
+  
+  
+  
+
+
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="top:94px">
+        <input type="number" value="0" id="index">
+        <div class="col-lg-12">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="http://localhost:8080/telefonicaGrud#">
+                        <em class="fa fa-home"></em>
+                    </a></li>
+                    <li class="active">JqGrid Example</li>
+                </ol>
+            </div><!--/.row-->
+            <br>
+            <div class="row">
+                <div style="margin-left:10px">
+                <label for="search_cells">Search Grid:</label>
+                <input id="search_cells" type="search"> <br>
+                <button onclick="back()">Back</button>&nbsp;&nbsp;<input type="number" value="1" id="page" style="width: 30px">&nbsp;&nbsp;<button onclick="next()">Next</button>
+                <br><button onclick="hide()">HIDE</button>&nbsp;&nbsp;<button onclick="show()">Show</button><div style="width:100%;overflow:auto;">
+                <div class="ui-jqgrid ui-widget ui-widget-content ui-corner-all" id="gbox_jqGrid" dir="ltr" style="width: 1494px;"><div class="ui-widget-overlay jqgrid-overlay" id="lui_jqGrid"></div><div class="loading ui-state-default ui-state-active" id="load_jqGrid" style="display: none;">Cargando...</div><div class="ui-widget ui-widget-content ui-corner-all ui-jqdialog" id="alertmod_jqGrid" dir="ltr" tabindex="-1" role="dialog" aria-labelledby="alerthd_jqGrid" aria-hidden="true" style="width: 200px; height: auto; z-index: 950; overflow: hidden; top: 432px; left: 821px;"><div class="ui-jqdialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-jqdialog-titlebar-ltr ui-draggable" id="alerthd_jqGrid"><span class="ui-jqdialog-title">Aviso</span><a class="ui-jqdialog-titlebar-close ui-corner-all"><span class="fa fa-times"></span></a></div><div class="ui-jqdialog-content ui-widget-content" id="alertcnt_jqGrid"><div>Seleccione una fila</div><span tabindex="0"><span tabindex="-1" id="jqg_alrt"></span></span></div><div class="jqResize ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"></div></div><div class="ui-jqgrid-view" role="grid" aria-multiselectable="false" id="gview_jqGrid" style="width: 1494px;"><div class="ui-jqgrid-titlebar ui-jqgrid-caption ui-widget-header ui-corner-top ui-helper-clearfix" style="display: none;"><span class="ui-jqgrid-title"></span><a role="link" class="ui-jqgrid-titlebar-close ui-corner-all" title="Toggle Expand Collapse Grid"><span class="ui-icon ui-icon-circle-triangle-n"></span></a></div><div class="ui-state-default ui-jqgrid-hdiv ui-corner-top" style="width: 1494px; cursor: default;"><div class="ui-jqgrid-hbox" style="padding-right: 0px;"><table class="ui-jqgrid-htable" style="width: 1494px;" role="presentation" aria-labelledby="gbox_jqGrid"><thead><tr role="row" aria-hidden="true" class="jqg-first-row-header" style="height: auto;"><th role="gridcell" class="ui-first-th-ltr" style="height: 0px; width: 258px;"></th><th role="gridcell" class="ui-first-th-ltr" style="height: 0px; width: 206px;"></th><th role="gridcell" class="ui-first-th-ltr" style="height: 0px; width: 206px;"></th><th role="gridcell" class="ui-first-th-ltr" style="height: 0px; width: 206px;"></th><th role="gridcell" class="ui-first-th-ltr" style="height: 0px; width: 206px;"></th><th role="gridcell" class="ui-first-th-ltr" style="height: 0px; width: 206px;"></th><th role="gridcell" class="ui-first-th-ltr" style="height: 0px; width: 206px;"></th></tr><tr role="row" class="ui-jqgrid-labels jqg-second-row-header"><th role="columnheader" class="ui-state-default ui-th-column-header ui-th-ltr" colspan="1" style="height: 22px; border-top: 0px none;">Info SIM</th><th role="columnheader" class="ui-state-default ui-th-column-header ui-th-ltr" colspan="2" style="height: 22px; border-top: 0px none;">Parametros de RED</th><th id="jqGrid_msisdn" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" rowspan="2" style=""><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr" style="cursor: col-resize; height: 42px !important;">&nbsp;</span><div id="jqgh_jqGrid_msisdn" class="ui-jqgrid-sortable" style="top: 13px;">Numero MSISDN<span class="s-ico" style="display:none"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th><th role="columnheader" class="ui-state-default ui-th-column-header ui-th-ltr" colspan="2" style="height: 22px; border-top: 0px none;">Presencia</th><th role="columnheader" class="ui-state-default ui-th-column-header ui-th-ltr" colspan="1" style="height: 22px; border-top: 0px none;">Info Dispositivo</th></tr><tr role="row" class="ui-jqgrid-labels jqg-third-row-header"><th id="jqGrid_icc" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style=""><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr" style="cursor: col-resize; height: 20px !important;">&nbsp;</span><div id="jqgh_jqGrid_icc" class="ui-jqgrid-sortable" style="top: 2px;">Numero ICC<span class="s-ico" style="display:none"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th><th id="jqGrid_lifeCycleStatus" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style=""><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr" style="cursor: col-resize; height: 20px !important;">&nbsp;</span><div id="jqgh_jqGrid_lifeCycleStatus" class="ui-jqgrid-sortable" style="top: 2px;">Estado<span class="s-ico" style="display:none"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th><th id="jqGrid_imsi" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style=""><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr" style="cursor: col-resize; height: 20px !important;">&nbsp;</span><div id="jqgh_jqGrid_imsi" class="ui-jqgrid-sortable" style="top: 2px;">Numero IMSI<span class="s-ico" style="display:none"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th><th id="jqGrid_gprsStatus.status" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style=""><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr" style="cursor: col-resize; height: 20px !important;">&nbsp;</span><div id="jqgh_jqGrid_gprsStatus.status" class="ui-jqgrid-sortable" style="top: 2px;">Estado GPRS<span class="s-ico" style="display:none"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th><th id="jqGrid_ipStatus.status" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style=""><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr" style="cursor: col-resize; height: 20px !important;">&nbsp;</span><div id="jqgh_jqGrid_ipStatus.status" class="ui-jqgrid-sortable" style="top: 2px;">Estado IP<span class="s-ico" style="display:none"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th><th id="jqGrid_imei" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style=""><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr" style="cursor: col-resize; height: 20px !important;">&nbsp;</span><div id="jqgh_jqGrid_imei" class="ui-jqgrid-sortable" style="top: 2px;">Numero IMEI<span class="s-ico" style="display:none"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th></tr></thead></table></div></div><div class="ui-jqgrid-bdiv ui-corner-bottom" style="height: 315px; width: 1494px;"><div style="position:relative;"><div></div><table id="jqGrid" tabindex="0" role="presentation" aria-labelledby="gbox_jqGrid" class="ui-jqgrid-btable" style="width: 1494px;"><tbody><tr class="jqgfirstrow" role="row" style="height:auto"><td role="gridcell" style="height: 0px; width: 258px;"></td><td role="gridcell" style="height: 0px; width: 206px;"></td><td role="gridcell" style="height: 0px; width: 206px;"></td><td role="gridcell" style="height: 0px; width: 206px;"></td><td role="gridcell" style="height: 0px; width: 206px;"></td><td role="gridcell" style="height: 0px; width: 206px;"></td><td role="gridcell" style="height: 0px; width: 206px;"></td></tr><tr role="row" id="8934072100260830628" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830628" aria-describedby="jqGrid_icc">8934072100260830628</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007751" aria-describedby="jqGrid_imsi">214074301007751</td><td role="gridcell" style="" title="345901000564216" aria-describedby="jqGrid_msisdn">345901000564216</td><td role="gridcell" style="" title="ACTIVA" aria-describedby="jqGrid_gprsStatus.status">ACTIVA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-573402-950533-4" aria-describedby="jqGrid_imei">86-573402-950533-4</td></tr><tr role="row" id="8934072100260829471" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260829471" aria-describedby="jqGrid_icc">8934072100260829471</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007636" aria-describedby="jqGrid_imsi">214074301007636</td><td role="gridcell" style="" title="345901000995553" aria-describedby="jqGrid_msisdn">345901000995553</td><td role="gridcell" style="" title="DESACTIVADA" aria-describedby="jqGrid_gprsStatus.status">DESACTIVADA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-210602-431506-3" aria-describedby="jqGrid_imei">86-210602-431506-3</td></tr><tr role="row" id="8934072100260830867" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830867" aria-describedby="jqGrid_icc">8934072100260830867</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007775" aria-describedby="jqGrid_imsi">214074301007775</td><td role="gridcell" style="" title="345901005039448" aria-describedby="jqGrid_msisdn">345901005039448</td><td role="gridcell" style="" title="ACTIVA" aria-describedby="jqGrid_gprsStatus.status">ACTIVA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-800402-762364-7" aria-describedby="jqGrid_imei">86-800402-762364-7</td></tr><tr role="row" id="8934072100260830719" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830719" aria-describedby="jqGrid_icc">8934072100260830719</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007760" aria-describedby="jqGrid_imsi">214074301007760</td><td role="gridcell" style="" title="345901000995739" aria-describedby="jqGrid_msisdn">345901000995739</td><td role="gridcell" style="" title="ACTIVA" aria-describedby="jqGrid_gprsStatus.status">ACTIVA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="35-923103-951854-1" aria-describedby="jqGrid_imei">35-923103-951854-1</td></tr><tr role="row" id="8934072100260830727" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830727" aria-describedby="jqGrid_icc">8934072100260830727</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007761" aria-describedby="jqGrid_imsi">214074301007761</td><td role="gridcell" style="" title="345901000996625" aria-describedby="jqGrid_msisdn">345901000996625</td><td role="gridcell" style="" title="DESACTIVADA" aria-describedby="jqGrid_gprsStatus.status">DESACTIVADA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-424402-021921-7" aria-describedby="jqGrid_imei">86-424402-021921-7</td></tr><tr role="row" id="8934072100260830610" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830610" aria-describedby="jqGrid_icc">8934072100260830610</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007750" aria-describedby="jqGrid_imsi">214074301007750</td><td role="gridcell" style="" title="345901005040293" aria-describedby="jqGrid_msisdn">345901005040293</td><td role="gridcell" style="" title="ACTIVA" aria-describedby="jqGrid_gprsStatus.status">ACTIVA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-210602-430232-7" aria-describedby="jqGrid_imei">86-210602-430232-7</td></tr><tr role="row" id="8934072100260830743" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830743" aria-describedby="jqGrid_icc">8934072100260830743</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007763" aria-describedby="jqGrid_imsi">214074301007763</td><td role="gridcell" style="" title="345901005060684" aria-describedby="jqGrid_msisdn">345901005060684</td><td role="gridcell" style="" title="DESACTIVADA" aria-describedby="jqGrid_gprsStatus.status">DESACTIVADA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-210602-442559-9" aria-describedby="jqGrid_imei">86-210602-442559-9</td></tr><tr role="row" id="8934072100260830735" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830735" aria-describedby="jqGrid_icc">8934072100260830735</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007762" aria-describedby="jqGrid_imsi">214074301007762</td><td role="gridcell" style="" title="345901000999049" aria-describedby="jqGrid_msisdn">345901000999049</td><td role="gridcell" style="" title="DESACTIVADA" aria-describedby="jqGrid_gprsStatus.status">DESACTIVADA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-295102-892713-6" aria-describedby="jqGrid_imei">86-295102-892713-6</td></tr><tr role="row" id="8934072100260830800" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830800" aria-describedby="jqGrid_icc">8934072100260830800</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007769" aria-describedby="jqGrid_imsi">214074301007769</td><td role="gridcell" style="" title="345901000996061" aria-describedby="jqGrid_msisdn">345901000996061</td><td role="gridcell" style="" title="ACTIVA" aria-describedby="jqGrid_gprsStatus.status">ACTIVA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-449503-013339-8" aria-describedby="jqGrid_imei">86-449503-013339-8</td></tr><tr role="row" id="8934072100260830818" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830818" aria-describedby="jqGrid_icc">8934072100260830818</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007770" aria-describedby="jqGrid_imsi">214074301007770</td><td role="gridcell" style="" title="345901005058703" aria-describedby="jqGrid_msisdn">345901005058703</td><td role="gridcell" style="" title="DESACTIVADA" aria-describedby="jqGrid_gprsStatus.status">DESACTIVADA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-309201-874960-9" aria-describedby="jqGrid_imei">86-309201-874960-9</td></tr><tr role="row" id="8934072100260830768" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830768" aria-describedby="jqGrid_icc">8934072100260830768</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007765" aria-describedby="jqGrid_imsi">214074301007765</td><td role="gridcell" style="" title="345901005059233" aria-describedby="jqGrid_msisdn">345901005059233</td><td role="gridcell" style="" title="ACTIVA" aria-describedby="jqGrid_gprsStatus.status">ACTIVA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-800402-762153-4" aria-describedby="jqGrid_imei">86-800402-762153-4</td></tr><tr role="row" id="8934072100260830636" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830636" aria-describedby="jqGrid_icc">8934072100260830636</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007752" aria-describedby="jqGrid_imsi">214074301007752</td><td role="gridcell" style="" title="345901000993265" aria-describedby="jqGrid_msisdn">345901000993265</td><td role="gridcell" style="" title="DESACTIVADA" aria-describedby="jqGrid_gprsStatus.status">DESACTIVADA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-573402-949103-0" aria-describedby="jqGrid_imei">86-573402-949103-0</td></tr><tr role="row" id="8934072100260830875" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830875" aria-describedby="jqGrid_icc">8934072100260830875</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007776" aria-describedby="jqGrid_imsi">214074301007776</td><td role="gridcell" style="" title="345901005039228" aria-describedby="jqGrid_msisdn">345901005039228</td><td role="gridcell" style="" title="DESACTIVADA" aria-describedby="jqGrid_gprsStatus.status">DESACTIVADA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-800402-761134-5" aria-describedby="jqGrid_imei">86-800402-761134-5</td></tr><tr role="row" id="8934072100260830859" tabindex="-1" class="ui-widget-content jqgrow ui-row-ltr"><td role="gridcell" style="" title="8934072100260830859" aria-describedby="jqGrid_icc">8934072100260830859</td><td role="gridcell" style="" title="ACTIVE" aria-describedby="jqGrid_lifeCycleStatus">ACTIVE</td><td role="gridcell" style="" title="214074301007774" aria-describedby="jqGrid_imsi">214074301007774</td><td role="gridcell" style="" title="345901005060096" aria-describedby="jqGrid_msisdn">345901005060096</td><td role="gridcell" style="" title="ACTIVA" aria-describedby="jqGrid_gprsStatus.status">ACTIVA</td><td role="gridcell" style="" title="NO DISPONIBLE" aria-describedby="jqGrid_ipStatus.status">NO DISPONIBLE</td><td role="gridcell" style="" title="86-800402-760985-1" aria-describedby="jqGrid_imei">86-800402-760985-1</td></tr></tbody></table></div></div></div><div class="ui-jqgrid-resize-mark" id="rs_mjqGrid">&nbsp;</div></div>
+
+                    <!-- <div id="jqGridPager"></div> -->
+     </div>
+                </div>
+            </div><!--/.row-->
+            <br>
+            <br>
+        </div>
+
+
+<!-- page end-->
+
+
+
+
+
+          
+   <!-- INSERT FOOTER -->
+    <div class="text-right">
+        <div class="credits">
+              <p>Copyright © Madd Systems 2018&nbsp;</p>
+        </div>
+    </div>
+
+        <!-- Insert nice scrool -->
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></body></html>

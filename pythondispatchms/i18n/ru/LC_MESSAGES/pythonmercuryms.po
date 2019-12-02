@@ -1,0 +1,623 @@
+# Russian translations for ${package}.
+# Copyright (C) 2008 ORGANIZATION
+# This file is distributed under the same license as the ${package} project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ${package} 0.0.0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-06-27 09:40-0500\n"
+"PO-Revision-Date: 2008-01-13 14:00+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: pythondispatchms/controllers/root.py:70
+msgid "Only for managers"
+msgstr ""
+
+#: pythondispatchms/controllers/root.py:76
+msgid "Only for the editor"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:139
+#: pythondispatchms/controllers/traffic.py:277
+msgid "IMEI"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:140
+msgid "Brand"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:141
+msgid "Model"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:142
+msgid "Year"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:143
+msgid "Color"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:144
+msgid "Plates"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:145
+msgid "Vin"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:146
+msgid "CCID"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:147
+#: pythondispatchms/controllers/traffic.py:182
+#: pythondispatchms/controllers/traffic.py:183
+msgid "Phone"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:148
+msgid "Eco"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:172
+msgid "Client ID"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:173
+msgid "Enterprise"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:174
+msgid "Business"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:175
+msgid "RFC"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:176
+msgid "Folio sin nube"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:177
+msgid "Address"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:178
+msgid "Expiration Date"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:179
+msgid "Created"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:180
+msgid "Seller"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:181
+#: pythondispatchms/templates/admin/adminlistener.mak:41
+#: pythondispatchms/templates/admin/adminlistener.mak:72
+#: pythondispatchms/templates/admin/adminlistener.mak:73
+#: pythondispatchms/templates/admin/adminlistener.mak:128
+#: pythondispatchms/templates/admin/adminlistener.mak:169
+#: pythondispatchms/templates/admin/adminlistener.mak:170
+#: pythondispatchms/templates/log/log.mak:214
+msgid "State"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:184
+msgid "Phone "
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:193
+#: pythondispatchms/controllers/traffic.py:261
+#: pythondispatchms/templates/admin/adminlistener.mak:41
+#: pythondispatchms/templates/log/log.mak:78
+msgid "Time Stamp"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:194
+#: pythondispatchms/controllers/traffic.py:262
+msgid "Event Id"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:195
+#: pythondispatchms/controllers/traffic.py:263
+#: pythondispatchms/templates/admin/adminlistener.mak:41
+msgid "Description"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:196
+#: pythondispatchms/controllers/traffic.py:264
+#: pythondispatchms/templates/admin/adminlistener.mak:456
+#: pythondispatchms/templates/admin/triggerform.mak:31
+#: pythondispatchms/templates/test/empty.mak:77
+#: pythondispatchms/templates/traffic/traffic.mak:164
+msgid "Priority"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:197
+#: pythondispatchms/controllers/traffic.py:265
+msgid "Speed"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:198
+#: pythondispatchms/controllers/traffic.py:266
+msgid "Azimuth"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:199
+#: pythondispatchms/controllers/traffic.py:267
+#: pythondispatchms/templates/test/empty.mak:77
+#: pythondispatchms/templates/traffic/traffic.mak:164
+#: pythondispatchms/templates/traffic/traffic.mak:848
+#: pythondispatchms/templates/traffic/traffic.mak:904
+msgid "Vehicle"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:200
+#: pythondispatchms/controllers/traffic.py:268
+#: pythondispatchms/templates/traffic/traffic.mak:905
+msgid "Event Time"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:202
+#: pythondispatchms/templates/traffic/traffic.mak:921
+#: pythondispatchms/templates/traffic/traffic.mak:938
+#: pythondispatchms/templates/traffic/traffic.mak:946
+msgid "Comment"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:205
+msgid "Venus ticket"
+msgstr ""
+
+#: pythondispatchms/controllers/traffic.py:209
+#: pythondispatchms/controllers/traffic.py:272
+msgid "Pending"
+msgstr ""
+
+#: pythondispatchms/templates/master.mak:367
+#: pythondispatchms/templates/originalmaster.mak:575
+msgid "user"
+msgstr ""
+
+#: pythondispatchms/templates/master.mak:367
+#: pythondispatchms/templates/originalmaster.mak:575
+msgid "time_stamp"
+msgstr ""
+
+#: pythondispatchms/templates/master.mak:367
+#: pythondispatchms/templates/originalmaster.mak:575
+msgid "Message"
+msgstr ""
+
+#: pythondispatchms/templates/master.mak:367
+#: pythondispatchms/templates/originalmaster.mak:575
+msgid "state"
+msgstr ""
+
+#: pythondispatchms/templates/master.mak:381
+#: pythondispatchms/templates/originalmaster.mak:589
+msgid "Notifications"
+msgstr ""
+
+#: pythondispatchms/templates/master.mak:432
+#: pythondispatchms/templates/originalmaster.mak:640
+msgid "Administration"
+msgstr ""
+
+#: pythondispatchms/templates/master.xhtml:8
+msgid "Your generic title goes here"
+msgstr ""
+
+#: pythondispatchms/templates/master.xhtml:20
+msgid "Toggle navigation"
+msgstr ""
+
+#: pythondispatchms/templates/master.xhtml:33
+msgid "Welcome"
+msgstr ""
+
+#: pythondispatchms/templates/master.xhtml:34
+msgid "About"
+msgstr ""
+
+#: pythondispatchms/templates/master.xhtml:35
+msgid "Serving Data"
+msgstr ""
+
+#: pythondispatchms/templates/master.xhtml:36
+msgid "WSGI Environment"
+msgstr ""
+
+#: pythondispatchms/templates/master.xhtml:39
+msgid "Login"
+msgstr ""
+
+#: pythondispatchms/templates/master.xhtml:40
+msgid "Logout"
+msgstr ""
+
+#: pythondispatchms/templates/master.xhtml:41
+msgid "Admin"
+msgstr ""
+
+#: pythondispatchms/templates/master.xhtml:64
+msgid "Copyright © "
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:24
+#: pythondispatchms/templates/log/log.mak:63
+#: pythondispatchms/templates/test/empty.mak:60
+msgid "Alerts"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:41
+#: pythondispatchms/templates/log/log.mak:78
+#: pythondispatchms/templates/test/empty.mak:77
+#: pythondispatchms/templates/traffic/traffic.mak:164
+msgid "Hidden"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:41
+#: pythondispatchms/templates/log/log.mak:78
+msgid "Listener ID"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:82
+#: pythondispatchms/templates/admin/adminlistener.mak:83
+msgid "Users"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:128
+#: pythondispatchms/templates/log/log.mak:214
+msgid "User Name"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:128
+msgid "Finalize Traffic"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:159
+#: pythondispatchms/templates/admin/adminlistener.mak:160
+msgid "Add Users"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:334
+msgid "Listener Expressions"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:368
+#: pythondispatchms/templates/admin/adminlistener.mak:369
+#: pythondispatchms/templates/admin/adminlistener.mak:387
+#: pythondispatchms/templates/admin/adminlistener.mak:486
+#: pythondispatchms/templates/admin/adminlistener.mak:487
+#: pythondispatchms/templates/admin/adminlistener.mak:504
+#: pythondispatchms/templates/admin/adminlistener.mak:659
+#: pythondispatchms/templates/admin/adminlistener.mak:660
+#: pythondispatchms/templates/admin/adminlistener.mak:682
+#: pythondispatchms/templates/test/empty.mak:122
+#: pythondispatchms/templates/test/empty.mak:123
+#: pythondispatchms/templates/traffic/traffic.mak:209
+#: pythondispatchms/templates/traffic/traffic.mak:210
+msgid "Add"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:412
+#: pythondispatchms/templates/admin/adminlistener.mak:544
+#: pythondispatchms/templates/admin/adminlistener.mak:710
+#: pythondispatchms/templates/traffic/traffic.mak:451
+msgid "Close"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:456
+msgid "User Expressions"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:625
+msgid "Filter name"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:625
+#: pythondispatchms/templates/log/log.mak:171
+msgid "Expression"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:625
+msgid "Action"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:625
+msgid "Reset Expression"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:625
+msgid "Counter"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:786
+#: pythondispatchms/templates/admin/assignform.mak:4
+#: pythondispatchms/templates/log/log.mak:171
+msgid "Field"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:786
+#: pythondispatchms/templates/admin/assignform.mak:8
+#: pythondispatchms/templates/admin/expressionform.mak:20
+#: pythondispatchms/templates/admin/userfilterform.mak:95
+#: pythondispatchms/templates/admin/userfilterform.mak:112
+msgid "Value"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:786
+msgid "Assigned"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:786
+#: pythondispatchms/templates/admin/assignform.mak:19
+msgid "Multiplier"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:786
+#: pythondispatchms/templates/admin/assignform.mak:23
+msgid "Unit"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:831
+msgid "Update"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:968
+msgid "Listener Fields"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:976
+msgid "Listener Fields Mapper"
+msgstr ""
+
+#: pythondispatchms/templates/admin/adminlistener.mak:987
+#: pythondispatchms/templates/test/empty.mak:142
+#: pythondispatchms/templates/test/json.mak:102
+#: pythondispatchms/templates/traffic/traffic.mak:978
+msgid "Basic dialog"
+msgstr ""
+
+#: pythondispatchms/templates/admin/expressionform.mak:1
+#: pythondispatchms/templates/admin/triggerform.mak:24
+msgid "Filter"
+msgstr ""
+
+#: pythondispatchms/templates/admin/userfilterform.mak:86
+msgid "When Event Counter"
+msgstr ""
+
+#: pythondispatchms/templates/admin/userfilterform.mak:102
+msgid "And Reset When Event counter"
+msgstr ""
+
+#: pythondispatchms/templates/log/log.mak:78
+msgid "Mapper State"
+msgstr ""
+
+#: pythondispatchms/templates/log/log.mak:171
+msgid "Is Field Found?"
+msgstr ""
+
+#: pythondispatchms/templates/log/log.mak:171
+msgid "Assigned to"
+msgstr ""
+
+#: pythondispatchms/templates/log/log.mak:171
+msgid "Request Value"
+msgstr ""
+
+#: pythondispatchms/templates/log/log.mak:171
+msgid "Exp State"
+msgstr ""
+
+#: pythondispatchms/templates/log/log.mak:214
+msgid "Trigger Exp"
+msgstr ""
+
+#: pythondispatchms/templates/log/log.mak:214
+msgid "Filter Exp"
+msgstr ""
+
+#: pythondispatchms/templates/test/empty.mak:77
+#: pythondispatchms/templates/traffic/traffic.mak:164
+msgid "Status"
+msgstr ""
+
+#: pythondispatchms/templates/test/empty.mak:77
+#: pythondispatchms/templates/traffic/traffic.mak:164
+msgid "Client"
+msgstr ""
+
+#: pythondispatchms/templates/test/empty.mak:77
+#: pythondispatchms/templates/traffic/traffic.mak:164
+#: pythondispatchms/templates/traffic/traffic.mak:847
+#: pythondispatchms/templates/traffic/traffic.mak:880
+msgid "Event"
+msgstr ""
+
+#: pythondispatchms/templates/test/empty.mak:77
+#: pythondispatchms/templates/traffic/traffic.mak:164
+msgid "Event Description"
+msgstr ""
+
+#: pythondispatchms/templates/test/empty.mak:77
+#: pythondispatchms/templates/traffic/traffic.mak:164
+msgid "Date"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/callerlist.mak:6
+msgid "Name"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/callerlist.mak:7
+msgid "Email"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/callerlist.mak:8
+msgid "Phone1"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/callerlist.mak:9
+msgid "Phone2"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/callerlist.mak:10
+msgid "Phone3"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/history.mak:2
+#: pythondispatchms/templates/traffic/traffic.mak:850
+msgid "Account History"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/noreport.mak:5
+msgid "Report not available"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:92
+msgid "Attended"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:99
+msgid "To Attend"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:106
+msgid "Closed"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:114
+msgid "Score"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:225
+msgid "Title"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:380
+msgid "Alarma C5"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:407
+msgid "Enviar Alerta"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:444
+msgid "Add Image"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:471
+msgid "Put on Pending"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:475
+#: pythondispatchms/templates/traffic/traffic.mak:489
+#: pythondispatchms/templates/traffic/traffic.mak:943
+msgid "Create Ticket"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:561
+#: pythondispatchms/templates/traffic/traffic.mak:912
+msgid "Finalize"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:590
+#: pythondispatchms/templates/traffic/traffic.mak:631
+msgid "Exit"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:596
+msgid "Submit"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:821
+#: pythondispatchms/templates/traffic/traffic.mak:844
+msgid "Traffic"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:823
+msgid "Caller Event"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:833
+#: pythondispatchms/templates/traffic/traffic.mak:838
+msgid "Upload Image"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:836
+msgid "Filename"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:838
+msgid "Only"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:846
+msgid "Account"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:849
+msgid "Caller List"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:851
+msgid "Images"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:852
+msgid "Installation Report"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:853
+msgid "Map"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:874
+msgid "Print"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:901
+msgid "Degress"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:906
+msgid "Link"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:924
+msgid "False Alarm"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:929
+msgid "Pending Comment"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:949
+msgid "Last Report"
+msgstr ""
+
+#: pythondispatchms/templates/traffic/traffic.mak:954
+msgid "Datos para enviar al C5"
+msgstr ""
+
+#~ msgid "Your application is now running"
+#~ msgstr "Ваши приложение успешно запущено"
+

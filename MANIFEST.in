@@ -1,0 +1,4 @@
+recursive-include pythondispatchms/public *
+include pythondispatchms/public/favicon.ico
+recursive-include pythondispatchms/i18n *
+recursive-include pythondispatchms/templates *
